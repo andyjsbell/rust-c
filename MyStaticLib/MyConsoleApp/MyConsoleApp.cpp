@@ -7,6 +7,10 @@ int main()
 {
     std::cout << "Hello World!\n";
 	std::cout << SimpleMultiply(10, 2);
+
+	char* buffer = NULL;
+	int size = 128;
+	FillMyMemory(buffer, &size);
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
