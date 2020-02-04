@@ -18,6 +18,8 @@ extern "C" int SimpleMultiply(int a, int b)
 
 extern "C" void FillMyMemory(char * buffer, int * size)
 {
-	*size = 128;
-	memset(buffer, 128, *size);
+	*size = 1920 * 1028 * 4;
+	auto src = new char[*size];
+	memcpy(buffer, src, (size_t)*size);
+	// memset(buffer, 128, *size);
 }

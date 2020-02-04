@@ -3,14 +3,21 @@
 
 #include <iostream>
 #include <MyStaticLib.h>
+#include <chrono>
 int main()
 {
     std::cout << "Hello World!\n";
-	std::cout << SimpleMultiply(10, 2);
+	std::cout << SimpleMultiply(10, 2) << std::endl;
+	int size = 1920 * 1028 * 4;
 
-	char* buffer = NULL;
-	int size = 128;
+	std::chrono::time_point<std::chrono::system_clock> start = std::chrono::system_clock::now();
+
+	char* buffer = new char[size];
 	FillMyMemory(buffer, &size);
+
+	std::chrono::time_point<std::chrono::system_clock> end = std::chrono::system_clock::now();
+	std::cout << std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
+
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
